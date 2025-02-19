@@ -103,11 +103,12 @@ A robust set of algorithms processes the multi-sensor data to evaluate flood ris
 ✔ **Audible Alerts** – The active buzzer sounds distinct patterns to warn of escalating conditions.  
 ✔ **Visual Indicators** – LED indicators change colors according to the risk level, offering quick visual confirmation even from a distance.
 
+![Esquema UML del modelo ](https://github.com/Edwinguty2/Challenge-1/blob/main/Drawing%20UML.png)
+
+
 ### 🔹 Future Software Enhancements
 Planned improvements include wireless communication protocols for remote monitoring, integration with cloud-based analytics platforms, and the application of advanced filtering algorithms to further improve data accuracy
 
-
-![Esquema UML del modelo ](https://github.com/Edwinguty2/Challenge-1/blob/main/Drawing%20UML.png)
 
 ---
 
