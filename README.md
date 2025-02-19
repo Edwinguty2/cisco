@@ -63,7 +63,11 @@ To ensure **immediate alerts**, the system includes:
 ### 4️⃣ Communication Module *(Future Upgrade)*
 While the prototype currently operates in a standalone mode, planned upgrades include:
 - **Wireless Data Transmission** – Sends data to a centralized server.  
-- **Cloud Integration** – Enables remote monitoring & advanced analytics.  
+- **Cloud Integration** – Enables remote monitoring & advanced analytics.
+
+![Diagrama de bloques del sistema ](https://github.com/Edwinguty2/Challenge-1/blob/main/Diagrama%20de%20bloques.jpeg)
+
+![Esquema del sistema](https://github.com/Edwinguty2/Challenge-1/blob/main/ARQUITECTURA.jpeg)
 
 ---
 
@@ -101,6 +105,9 @@ A robust set of algorithms processes the multi-sensor data to evaluate flood ris
 
 ### 🔹 Future Software Enhancements
 Planned improvements include wireless communication protocols for remote monitoring, integration with cloud-based analytics platforms, and the application of advanced filtering algorithms to further improve data accuracy
+
+
+![Esquema UML del modelo ](https://github.com/Edwinguty2/Challenge-1/blob/main/Drawing%20UML.png)
 
 ---
 
