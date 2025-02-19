@@ -67,7 +67,7 @@ While the prototype currently operates in a standalone mode, planned upgrades in
 
 ![Diagrama de bloques del sistema ](https://github.com/Edwinguty2/Challenge-1/blob/main/Diagrama%20de%20bloques.jpeg)
 
-![Esquema del sistema](https://github.com/Edwinguty2/Challenge-1/blob/main/ARQUITECTURA.jpeg)
+
 
 ---
 
@@ -83,6 +83,8 @@ Operating within a range optimized for the prototype (approximately 2–7 cm in 
 This sensor provides an immediate Boolean signal when raindrop patterns are detected, serving as a direct trigger for potential flood conditions when combined with other sensor inputs.
 **BMP180 Barometer** 
 Though not currently active, the BMP180 barometer is included in the design to enhance future iterations. Monitoring atmospheric pressure, this sensor can help predict the intensity of upcoming storms, offering an additional layer of precaution.
+
+![Esquema del sistema](https://github.com/Edwinguty2/Challenge-1/blob/main/ARQUITECTURA.jpeg)
 
 -----
 
