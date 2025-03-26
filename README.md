@@ -47,7 +47,7 @@ By adopting **cutting-edge sensor fusion** and **concurrent data processing**, t
 - Renders real-time sensor readings and risk levels in a browser interface.
 - Provides charts, tables, and alert notifications for intuitive monitoring.
 
-> For visual diagrams of the system architecture, please refer to the images included in this repository.
+> ![Diagrama de bloques del sistema ](https://github.com/Edwinguty2/Challenge_2/blob/main/Diagrama%20de%20Bloques.png)
 
 ---
 
@@ -104,6 +104,8 @@ By adopting **cutting-edge sensor fusion** and **concurrent data processing**, t
 - **LCD Display:** Cycles through system metrics and current risk levels.
 - **LED Indicators:** Change color or blink based on the severity of the alert.
 - **Active Buzzer:** Activates distinct audible tones when critical thresholds are surpassed.
+
+  ![Esquema UML del modelo ](https://github.com/Edwinguty2/Challenge_2/blob/main/Drawing%20UML.png)
 
 ---
 
