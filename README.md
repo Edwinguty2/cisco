@@ -147,6 +147,7 @@ The **Real-Time Flood Monitoring and Alert System (ESP32 Edition)** delivers a *
 LAN Restriction:   The system is limited to operating exclusively on a local area network (LAN), ensuring secure and controlled communication.
 
 Also, During the development of the Real-Time Flood Monitoring and Alert System (ESP32 Edition), several technical and operational constraints were identified that influenced the design and implementation decisions. One of the main limitations was the exposure of electronic components to environmental conditions, especially the wiring and sensors such as the rain detector, whose sensitivity to direct water contact posed electrical risks and required protective solutions that could increase both cost and logistical complexity for large-scale deployment. Additionally, there was a need to place sensors in strategic positions to ensure accurate readings, which is not always feasible in real-world settings due to physical or access limitations.
+
 ---
 
 ## Experimental Setup, Results, and Analysis
