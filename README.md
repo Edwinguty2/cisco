@@ -118,6 +118,12 @@ By adopting **cutting-edge sensor fusion** and **concurrent data processing**, t
 
 ---
 
+## Potential Impact & Future Directions
+
+The testing protocol for the Real-Time Flood Monitoring and Alert System (ESP32 Edition) demonstrates a comprehensive and methodical approach to ensuring the reliability and functionality of the system prior to field deployment. It effectively addresses the verification of all critical components, including individual procedures for each sensor (ultrasonic, DHT11, BMP180, rain detector, and wind sensor), communication tests with the web interface, and validation of the alert system (buzzer, LEDs, LCD). The protocol is practical and replicable, offering clear steps that integrate both hardware and software validation, such as calibrating the ultrasonic sensor using real-world references, simulating rainfall and wind conditions, and testing REST API endpoints. The inclusion of a troubleshooting section enhances the protocol's usability by enabling quick identification and resolution of common issues. Although the current manual procedures are effective, future iterations could benefit from the introduction of automation, stress testing under prolonged use, and structured logging of test results to increase scalability and long-term reliability. Overall, the protocol supports the project's goal of delivering a robust, real-time flood monitoring system by ensuring that each module operates correctly under both normal and emergency conditions.
+
+---
+
 ## Conclusion
 The **Real-Time Flood Monitoring and Alert System (ESP32 Edition)** delivers a **robust, scalable**, and **cost-effective** solution to the challenges faced by flood-prone regions in Colombia. By combining **advanced sensor fusion**, **dual-thread processing**, and a **LAN-based dashboard**, the system provides rapid, reliable insights that can help **save lives** and **protect infrastructure**.
 
