@@ -142,11 +142,41 @@ The **Real-Time Flood Monitoring and Alert System (ESP32 Edition)** delivers a *
 
 
 ---
+## Design Constraints Identified
+**LAN Restriction:**  
+   The system is limited to operating exclusively on a local area network (LAN), ensuring secure and controlled communication.
+---
+
+## Self-Evaluation of the Testing Protocol
+1. **Repetition Test:**  
+   Verify that sensor measurements are consistently repeated under controlled conditions.
+
+2. **Stability Evaluation:**  
+   Measure the system's stability over time, ensuring there are no unexpected variations in sensor readings.
+   
+---
+
+## Experimental Setup, Results, and Analysis
+1. **Experimental Setup:**  
+   A scale model of a rural house was used to simulate a real-world environment for testing the system.
+
+2. **Simulated Environmental Conditions:**  
+   Scenarios were recreated to mimic variations in water levels and typical rural environmental conditions.
+
+---
+
+## Challenges Faced During Project Development
+1. **Limited Testing Time:**  
+   Sensors were available for lab use only for 2 hours, which significantly restricted testing time.
+
+2. **Holiday Impact:**  
+   The testing schedule was further affected by a holiday on Monday, reducing the opportunity to conduct tests under real conditions.
+
+3. **Logistical Limitations:**  
+   Coordination and planning of the tests were impacted by restrictions in lab availability and access.
 
 ## Contributors
 - **Edwin Alejandro Gutierrez Rodriguez**  
 - **Nicolas Stiven Ortiz Cortes**  
 - **Juan Díego Lemus Rey**  
 - **Universidad de La Sabana**
-
-> This project is ongoing. Contributions, suggestions, and feedback are highly welcomed to further improve and expand the system's capabilities.
