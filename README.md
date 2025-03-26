@@ -1,145 +1,156 @@
-# Real-Time Flood Monitoring and Alert System for Colombian Rivers
+Real-Time Flood Monitoring and Alert System for Colombian Rivers (ESP32 Edition)
+Abstract
+Colombia’s complex topography and dynamic climate pose significant challenges in predicting and managing flood events. This repository presents an enhanced IoT-based solution that leverages an ESP32 WROOM32 microcontroller running two concurrent tasks—one dedicated to sensor data processing and another to hosting a local web server. By integrating multiple sensors (ultrasonic, DHT11, tilt switch, raindrop detector, and a BMP180 barometric sensor over I2C), the system continuously monitors river conditions and environmental parameters. Sensor data are streamed over a LAN-based dashboard, providing real-time insights and early flood warnings to local communities and authorities.
 
-## Abstract
-Colombia’s rich topography and diverse climate create both breathtaking landscapes and challenging hydrological conditions. With frequent river floods—especially during the rainy season and climatic events like La Niña—communities face significant risks to infrastructure and public safety. 
+📌 Introduction
+Frequent river floods across Colombia—amplified by phenomena like La Niña—continue to threaten public safety, disrupt infrastructure, and strain emergency response efforts. Traditional monitoring systems often lack the agility to deliver timely, localized alerts, leaving communities vulnerable to sudden surges in water levels.
 
-This project introduces an innovative **Internet of Things (IoT)** solution designed to monitor river water levels and environmental conditions in real-time. By integrating a suite of sensors and an intelligent alert mechanism, the system provides early detection of flood events and instant notifications to local authorities, aiming to mitigate disaster impacts and safeguard communities.
+This project builds upon previous work by replacing the Arduino Nano with an ESP32 WROOM32, offering dual-thread concurrency for simultaneous data processing and web service hosting. The system now streams sensor readings over a local network, providing a scalable, modular, and near-real-time framework for flood detection and early warning.
 
----
+🎯 Motivation and Impact
+Imagine a scenario where local authorities and community members can instantly see rising water levels on a dashboard, receiving alerts before flooding occurs.
 
-## 📌 Introduction
-Flooding is a recurring and often devastating natural hazard in Colombia. where even normally benign rivers can transform into life-threatening torrents in a matter of hours. In November 2024, heavy rains led to severe flooding along major roadways in Bogotá—stranding vehicles, disrupting daily life, and endangering thousands of residents.The need for a rapid, reliable, and cost-effective flood monitoring system has never been greater.
+The system aims to:
 
-Our Our project harnesses the power of IoT to create a proactive flood detection system that continuously monitors key environmental parameters. Through the use of multi-sensor technology and smart alert mechanisms, the system not only detects rising water levels but also assesses wind, temperature, humidity, and precipitation to determine the overall risk level. This approach provides a comprehensive view of the evolving environmental conditions, enabling prompt and informed decision-making
+Enhance Public Safety – Rapid, localized alerts give communities critical lead time to evacuate or prepare.
 
+Protect Infrastructure – Early detection reduces damage to roads, bridges, and other essential services.
 
----
+Improve Emergency Management – Centralized real-time data supports coordinated, data-driven responses.
 
-## 🎯 Motivation and Impact
+Facilitate Sustainable Urban Planning – Historical sensor data can guide decisions on urban development, zoning, and flood defense systems.
 
-**Imagine a world where communities and emergency responders receive real-time flood alerts—allowing them to evacuate in time.** 
+By adopting cutting-edge sensor fusion and concurrent data processing, this solution takes a proactive approach to disaster risk reduction.
 
-Our system is designed with this vision in mind. By deploying an array of sensors along critical river points, we aim to:
+🏗 System Architecture Overview
+1️⃣ Concurrent ESP32 Threads
+Measurement Task: Collects data from all sensors, applies filtering and calibration, and packages the readings for internal processing.
 
-✅ **Enhance Public Safety** – Early warnings can save lives and reduce injuries by giving communities more time to respond.  
-✅ **Protect Infrastructure** – Timely notifications help minimize damage to roads, bridges, and public utilities.  
-✅ **Support Emergency Management** – Real-time data feeds into centralized command centers, improving coordination during crises. 
-✅ **Promote Sustainable Urban Planning** – Long-term monitoring data can inform better infrastructure design and zoning decisions. 
+WebServer Task: Runs an HTTP server on the local network, serving the front-end dashboard (HTML, CSS, and JavaScript) and providing real-time sensor data.
 
-This project is a **step forward** in leveraging modern technology to tackle **natural disaster challenges**.
+2️⃣ Sensor Modules
+Ultrasonic Sensor (Digital): Measures river height with high accuracy.
 
----
+DHT11 (Digital): Provides ambient temperature and humidity.
 
-## 🏗 System Architecture Overview
+Tilt Switch (Digital): Detects wind-related inclinations via a windsock mechanism.
 
-Our flood monitoring solution is built on an IoT framework that integrates seamlessly into existing infrastructure, integrating four main modules:
+Raindrop Detector (Digital): Delivers a Boolean output indicating precipitation events.
 
-### 1️⃣ Sensing
-The system uses a **variety of sensors** to capture real-time environmental data:
+BMP180 Barometric Sensor (I2C): Reserved for future storm intensity assessments via atmospheric pressure data.
 
-- **Tilt Switch (within a Windsock)** – Measures wind conditions by detecting the direction and intensity of airflow.
-- **DHT11 Temperature & Humidity Sensor** – Records ambient temperature and humidity, factors that can affect water evaporation and local weather dynamics.
-- **Ultrasonic Sensor** – Precisely measures the distance from the sensor to the water surface, providing continuous updates on water level changes.
-- **Raindrop Sensor** – Detects the presence of rain, delivering a Boolean signal to indicate precipitation events.
-- **BMP180 Barometer** *(Future Upgrade)* – Although not active in the current prototype, this sensor is reserved for future storm intensity assessments by monitoring atmospheric pressure changes.
+3️⃣ Alert and Visualization
+LCD Display (I2C): Displays real-time system status and risk levels.
 
-### 2️⃣ Data Processing & Aggregation
-Sensor data is processed by an **Arduino Nano**, performing:
+Active Buzzer (Digital): Emits audible alerts when flood risk thresholds are exceeded.
 
-🔹 **Signal Conditioning** – Filtering and calibration ensure accurate measurements. 
-🔹 **Risk Evaluation** – Custom algorithms analyze the sensor data against predefined thresholds to classify conditions into one of four risk states:  
-   - **CALM (No Risk)**
-   - **LOW RISK (Wind or Rain Only)**
-   - **OVERFLOW RISK (Wind + Rain = Storm)**
-   - **HIGH RISK (Active Flooding)**  
+LED Indicators (Digital): Provides immediate visual signals for different alert states.
 
-### 3️⃣ Alert & Notification System
-To ensure **immediate alerts**, the system includes:
+4️⃣ LAN-Restricted Web Dashboard
+Renders real-time sensor readings and risk levels in a browser interface.
 
-- **LCD Display** – Provides real-time status updates and risk levels.  
-- **Active Buzzer** – Emits audible alerts when dangerous conditions are detected. 
-- **LED Indicators** – Visual signals that change color based on the severity of the risk, ensuring clarity even from a distance.  
+Provides charts, tables, and alert notifications for intuitive monitoring.
 
-### 4️⃣ Communication Module *(Future Upgrade)*
-While the prototype currently operates in a standalone mode, planned upgrades include:
-- **Wireless Data Transmission** – Sends data to a centralized server.  
-- **Cloud Integration** – Enables remote monitoring & advanced analytics.
+For visual diagrams of the system architecture, please refer to the images included in this repository.
 
-![Diagrama de bloques del sistema ](https://github.com/Edwinguty2/Challenge-1/blob/main/Diagrama%20de%20bloques.jpeg)
+🔧 Hardware Components
+ESP32 WROOM32
+Dual-core microcontroller with integrated WiFi, running two FreeRTOS tasks concurrently.
 
+Supports both I2C communication (for BMP180 and LCD) and digital interfaces for other sensors.
 
+Ultrasonic Sensor
+Accurately captures water level variations.
 
----
+Effective range tailored for the prototype (approximately 2–7 cm in demo settings).
 
-## 🔧 Hardware Components
+DHT11 Temperature & Humidity Sensor
+Low-cost sensor for environmental monitoring.
 
- ### 🔹**Tilt Switch in a Windsock** 
-Installed within a windsock, the tilt switch reliably determines wind conditions by switching its state when wind speed makes the windsock rise. This binary output (true/false) is crucial for determining whether wind conditions contribute to the flood risk.
- ### 🔹 **DHT11 Temperature and Humidity Sensor** 
-The DHT11 sensor continuously measures environmental temperature and humidity. Fluctuations in these parameters can indicate changes in weather conditions, providing early clues to the onset of heavy rainfall
- ### 🔹**SUltrasonic Sensor**
-Operating within a range optimized for the prototype (approximately 2–7 cm in the model), the ultrasonic sensor accurately measures water levels. Its high resolution ensures that even small changes in river height are detected, enabling a timely response to sudden increases.
- ### 🔹**Raindrop Sensor** 
-This sensor provides an immediate Boolean signal when raindrop patterns are detected, serving as a direct trigger for potential flood conditions when combined with other sensor inputs.
-**BMP180 Barometer** 
-Though not currently active, the BMP180 barometer is included in the design to enhance future iterations. Monitoring atmospheric pressure, this sensor can help predict the intensity of upcoming storms, offering an additional layer of precaution.
+Captures temperature and humidity data to correlate weather trends with flood conditions.
 
-![Esquema del sistema](https://github.com/Edwinguty2/Challenge-1/blob/main/ARQUITECTURA.jpeg)
+Tilt Switch in a Windsock
+Provides wind-related data, indicating the presence of strong gusts.
 
------
+Outputs a binary signal that, when combined with other sensor inputs, helps assess storm risk.
 
-## 🖥 Software Design & Implementation
+Raindrop Sensor
+Detects the presence of precipitation.
 
-### 🔹 Data Acquisition & Calibration
-Sensor data is continuously sampled at high frequencies, with real-time calibration routines **ensuring accuracy**. The software accounts for environmental noise and sensor drift through adaptive filtering techniques.
+Refined logic reduces false positives under light drizzle conditions.
 
-### 🔹 Risk Evaluation Algorithm
-A robust set of algorithms processes the multi-sensor data to evaluate flood risk. By cross-referencing sensor readings against established thresholds, the system dynamically assigns a risk level. For example:
-- **CALM** – Normal water levels, low wind/rain.
-- **LOW RISK** – Minor wind or slight rainfall.
-- **OVERFLOW RISK** – Combined wind and rain conditions hinting at an impending storm.
-- **HIGH RISK** – Significant water level increases accompanied by high winds and heavy rainfall signal an active flood.
+BMP180 Barometric Sensor (I2C)
+Currently reserved for future use to monitor atmospheric pressure and predict storm intensity.
 
-### 🔹 User Interface & Alert System
-✔ **Real-time Feedback** – The LCD continuously updates with current sensor readings and risk status.
-✔ **Audible Alerts** – The active buzzer sounds distinct patterns to warn of escalating conditions.  
-✔ **Visual Indicators** – LED indicators change colors according to the risk level, offering quick visual confirmation even from a distance.
+LCD Display (I2C)
+Offers local, on-site information about water levels and risk states.
 
-![Esquema UML del modelo ](https://github.com/Edwinguty2/Challenge-1/blob/main/Drawing%20UML.png)
+Particularly useful when network connectivity is limited or during field inspections.
 
+🖥 Software Design & Implementation
+Dual-Thread Concurrency
+Measurement Task:
 
-### 🔹 Future Software Enhancements
-Planned improvements include wireless communication protocols for remote monitoring, integration with cloud-based analytics platforms, and the application of advanced filtering algorithms to further improve data accuracy
+Samples sensors at predefined intervals.
 
+Applies filtering and calibration to raw sensor data.
 
----
+Compiles readings for internal processing.
 
-## 🔮 Potential Impact & Future Directions
+WebServer Task:
 
-Our **IoT-based flood monitoring system** holds the potential to transform disaster management in flood-prone regions:
+Hosts an HTTP server that serves the front-end dashboard.
 
-✅ **Community Resilience** – Empowering communities with real-time information enables more proactive and informed responses to emerging flood threats.
-✅ **Emergency Services Optimization** – Enhanced data sharing and early alerts can significantly improve the coordination and effectiveness of emergency response teams.  
-✅ **Urban Infrastructure Planning** – Long-term data trends can guide future infrastructure investments and urban development plans, ensuring that new projects are resilient against flood risks.
-✅ **Scalability** – TThe modular design of the system makes it adaptable to various geographical regions and scalable for broader implementation—from rural riverbanks to urban flood control systems.
+Responds to data requests with real-time sensor information.
 
-By merging **cutting-edge sensor technology** with **robust software analytics**, this project is poised to make a lasting impact on **public safety and environmental monitoring**.
+Handles RESTful API endpoints for future enhancements, such as remote configuration updates.
 
----
+Risk Evaluation Algorithm
+CALM: Normal water levels with no significant wind or rain.
 
-## 📜 Conclusion
-This **Real-Time Flood Monitoring System** is a **game-changer** for Colombia’s flood-prone regions. With **affordable hardware** and **scalable technology**, we can **prevent disasters, protect lives, and safeguard infrastructure**.
+LOW RISK: Moderate wind or light rainfall detected.
 
-🌊 **Flood prevention starts with early detection.** This project is the **first step** in achieving a **safer future** for all.
+OVERFLOW RISK: Combination of rising water levels, wind, and rain indicates an impending storm.
 
----
+HIGH RISK: Rapid water-level rise accompanied by intense wind and heavy rainfall signals active flooding.
 
-## 💡 Contributors
-- **[Edwin Alejandro Gutierrez Rodriguez]**
-**[Nicolas Stiven Ortiz Cortes]**
-  **[Juan Díego Lemus Rey]**
-- **[Universidad de La Sabana]**
+User Interface & Alerts
+LCD Display: Cycles through system metrics and current risk levels.
 
----
+LED Indicators: Change color or blink based on the severity of the alert.
 
+Active Buzzer: Activates distinct audible tones when critical thresholds are surpassed.
 
+🔮 Potential Impact & Future Directions
+Community-Centric Safety: Real-time alerts empower local residents and authorities to take proactive measures.
+
+Enhanced Emergency Coordination: Integration with municipal systems can streamline evacuation and resource allocation.
+
+Long-Term Urban Planning: Historical data can inform infrastructure development, floodplain mapping, and zoning decisions.
+
+Scalability: The modular design and dual-thread architecture allow for easy expansion and the addition of new sensor nodes.
+
+📜 Conclusion
+The Real-Time Flood Monitoring and Alert System (ESP32 Edition) delivers a robust, scalable, and cost-effective solution to the challenges faced by flood-prone regions in Colombia. By combining advanced sensor fusion, dual-thread processing, and a LAN-based dashboard, the system provides rapid, reliable insights that can help save lives and protect infrastructure.
+
+Flood prevention starts with early detection—join us in creating safer, more resilient communities.
+
+📋 Summary Comparison Table
+Feature	Original (Arduino Nano)	ESP32 Edition
+Microcontroller	Arduino Nano	ESP32 WROOM32 (Dual-Thread)
+Data Exchange	Local Variables	Streamed over LAN
+Networking	None	LAN-Based WiFi Dashboard
+Barometric / LCD	Limited / Basic	Enabled via I2C
+Rain Logic	Basic Thresholds	Refined (Fewer False Pos.)
+Processing Model	Single Loop	FreeRTOS Concurrency
+Scalability	Low	High (Modular Design)
+Legend: The ESP32 Edition builds on the legacy system, enhancing performance through concurrency, robust networking, and improved sensor integration.
+
+💡 Contributors
+Edwin Alejandro Gutierrez Rodriguez
+
+Nicolas Stiven Ortiz Cortes
+
+Juan Díego Lemus Rey
+
+Universidad de La Sabana
