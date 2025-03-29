@@ -49,7 +49,7 @@ La validación del sistema se realizó mediante una demostración práctica en v
 También se realizó una prueba de conexión en la que se mostró cómo un monitor, al introducir la contraseña del gateway, se conecta correctamente y comienza a recibir los datos de manera instantánea. Esta demostración asegura que la infraestructura funciona correctamente, validando tanto la transmisión de datos como la capacidad de control remoto y local.
 
 ## Referencias:
-["IOT", HexHub. Disponible en: https://www.youtube.com/playlist?list=PLmolNWplRhQS1r5PdbInurvoX0MdQ7U2F. [Accedido: 27-Mar-2025].)
+"Internet of Things (IoT)", HexHub, 2025. Disponible en: https://www.youtube.com/playlist?list=PLmolNWplRhQS1r5PdbInurvoX0MdQ7U2F. [Accedido: 28-Mar-2025].
 
 
 
