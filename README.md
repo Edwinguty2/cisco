@@ -1,60 +1,58 @@
-# IoT for Smart Ventilation - Proyecto de Ventilación Inteligente para Cultivo de Rosas en Colombia
+# IoT for Smart Ventilation - Smart Ventilation Project for Rose Cultivation in Colombia
 
-## Descripción del Proyecto
-Este proyecto busca implementar un sistema de ventilación inteligente para la industria de la floricultura en Colombia, específicamente para el cultivo de rosas. Aprovechando el Internet de las Cosas (IoT) y la inteligencia artificial (IA), se planea optimizar el control del clima, específicamente la ventilación, mediante el uso de datos provenientes de sensores ambientales (temperatura, humedad y consumo de energía). Este sistema permitirá la automatización del control del aire, reduciendo el consumo de energía y mejorando la eficiencia operativa en condiciones rurales con conectividad limitada.
+## Project Description
+This project aims to implement a smart ventilation system for the floriculture industry in Colombia, specifically for rose cultivation. By leveraging the Internet of Things (IoT) and Artificial Intelligence (AI), it plans to optimize climate control, specifically ventilation, through the use of data from environmental sensors (temperature, humidity, and energy consumption). This system will enable automation of air control, reducing energy consumption and improving operational efficiency in rural areas with limited connectivity.
 
-## Objetivos
+## Objectives
 
-**Objetivo General:** Diseñar y desarrollar un piloto de infraestructura IoT que integre datos de sensores, automatización mediante IA y monitoreo remoto en tiempo real para mejorar la eficiencia energética en la ventilación de cultivos de rosas en Colombia.
+**General Objective:** Design and develop an IoT infrastructure pilot that integrates sensor data, AI-based automation, and real-time remote monitoring to improve energy efficiency in ventilation for rose cultivation in Colombia.
 
-**Objetivos Específicos:**
-1. Desarrollar un Producto Mínimo Viable (MVP) que integre adquisición de sensores, procesamiento local con IA y conectividad a la nube para reducir el consumo de energía comparado con los sistemas tradicionales de ventilación.
-2. Implementar una plataforma de monitoreo remoto para asegurar una disponibilidad teórica del 99% de los datos en tiempo real a través de una aplicación web/móvil.
-3. Recoger retroalimentación de los stakeholders durante la fase final del proyecto para asegurar la satisfacción en términos de eficiencia energética y usabilidad.
+**Specific Objectives:**
+1. Develop a Minimum Viable Product (MVP) that integrates sensor acquisition, local AI processing, and cloud connectivity to reduce energy consumption compared to traditional ventilation systems.
+2. Implement a remote monitoring platform to ensure a theoretical 99% data availability in real-time through a web/mobile application.
+3. Collect feedback from stakeholders during the final phase of the project to ensure satisfaction regarding energy efficiency and usability.
 
-## Uso de MQTT en el Proyecto
+## Use of MQTT in the Project
 
-**¿Qué es MQTT?**
+**What is MQTT?**
 
-MQTT (Message Queuing Telemetry Transport) es un protocolo de mensajería liviano y eficiente, ideal para aplicaciones IoT debido a su bajo consumo de ancho de banda y su capacidad para funcionar en redes con baja conectividad. Gracias a su arquitectura basada en la publicación y suscripción, es ampliamente utilizado para la transmisión de datos entre dispositivos conectados de manera confiable y segura, incluso en entornos de red inestables.
+MQTT (Message Queuing Telemetry Transport) is a lightweight and efficient messaging protocol, ideal for IoT applications due to its low bandwidth consumption and ability to operate on networks with low connectivity. Thanks to its publish/subscribe architecture, it is widely used for transmitting data between connected devices reliably and securely, even in unstable network environments.
 
-**¿Para qué se usó MQTT?**
+**Why was MQTT used?**
 
-En este proyecto, MQTT se utilizó para la transmisión de datos entre los sensores de monitoreo ambiental (temperatura, humedad, voltaje, corriente) y el sistema de control centralizado. Los sensores recogen los datos del entorno y los envían a través de un cliente MQTT al gateway central, que los retransmite hacia los servidores finales para su almacenamiento y análisis.
+In this project, MQTT was used for transmitting data between environmental monitoring sensors (temperature, humidity, voltage, current) and the centralized control system. The sensors collect data from the environment and send it through an MQTT client to the central gateway, which retransmits it to the final servers for storage and analysis.
 
-**¿Por qué se usó MQTT?**
+**Why was MQTT used?**
 
-La eficiencia de MQTT lo hace una opción ideal para redes con capacidad limitada, como las de zonas rurales de Colombia. Su bajo consumo de energía lo convierte en la solución perfecta para dispositivos IoT alimentados por baterías. Además, permite la transmisión de datos en tiempo real, lo cual es esencial para el control de la ventilación, que debe adaptarse rápidamente a las condiciones cambiantes del ambiente. Su modelo de publicación/suscripción garantiza una comunicación confiable y eficiente, además de ser fácilmente escalable, lo que facilita la integración de más sensores y dispositivos a medida que el sistema crece.
+MQTT's efficiency makes it an ideal option for networks with limited capacity, such as those in rural areas of Colombia. Its low energy consumption makes it the perfect solution for IoT devices powered by batteries. Additionally, it allows for real-time data transmission, which is essential for ventilation control that needs to quickly adapt to changing environmental conditions. Its publish/subscribe model ensures reliable and efficient communication, and it is easily scalable, making it easier to integrate more sensors and devices as the system grows.
 
-## Infraestructura del Proyecto
+## Project Infrastructure
 
-> ![Infraestrutura en Cisco Packet Tracer](https://github.com/Edwinguty2/cisco/blob/main/infra.png)
+> ![Infrastructure in Cisco Packet Tracer](https://github.com/Edwinguty2/cisco/blob/main/infra.png)
 
-La red fue diseñada usando Cisco Packet Tracer, simulando una infraestructura completa para la transmisión de datos entre sensores y servidores a través de MQTT.
+The network was designed using Cisco Packet Tracer, simulating a complete infrastructure for transmitting data between sensors and servers via MQTT.
 
-### Tipo de red y topología:
-La red es híbrida, combinando elementos de red de área local (LAN) y red de área amplia (WAN). Los sensores IoT están conectados a un dispositivo central (SBC) que transmite los datos a través de un gateway hacia la red local. Esta red local se conecta a internet mediante un módem de cable, permitiendo que los dispositivos remotos, como smartphones, accedan a los datos a través de Wi-Fi o redes móviles (torre celular). Los routers y servidores gestionan la transmisión y almacenamiento de datos, permitiendo tanto el monitoreo local como el acceso remoto. El tipo de red es híbrida, y como se puede ver en la imagen, la topología también lo es, ya que en un extremo es tipo estrella y se conecta a otras ramas generadas después de que sale a internet. que integra comunicaciones locales y remotas para la visualización y control en tiempo real de los sensores.
+### Network Type and Topology:
+The network is hybrid, combining elements of local area network (LAN) and wide area network (WAN). The IoT sensors are connected to a central device (SBC) that transmits data through a gateway to the local network. This local network connects to the internet via a cable modem, allowing remote devices such as smartphones to access the data through Wi-Fi or mobile networks (cell tower). Routers and servers manage the transmission and storage of data, enabling both local monitoring and remote access. The network type is hybrid, and as seen in the image, the topology is also hybrid, as one end is star-shaped and connects to other branches that are generated after going out to the internet. It integrates local and remote communications for real-time visualization and control of the sensors.
 
-### Detalles de la Infraestructura de Comunicación
-A continuación, se describen los componentes clave en el recorrido:
-- **Sensores:** Capturan datos de temperatura, humedad y consumo de energía. Estos sensores envían la información a través de MQTT hacia el gateway central.
-- **Single Board Computer (SBC):** Actúa como el intermediario entre los sensores y el MQTT Client, simulando una Raspberry Pi en la red y procesando los datos de los sensores para dar partida a la trasmisión.
-- **MQTT Client:** Este cliente es responsable de publicar los datos de los sensores en el servidor MQTT suscrito. El modelo de publicación/suscripción asegura que solo los dispositivos necesarios reciban los datos, permitiendo un control remoto y local eficiente.
-- **Gateway:** Además de transmitir los datos hacia el router, el gateway permite la conexión directa con los dispositivos locales (monitores de temperatura y humedad, y dispositivos móviles), para visualizar y controlar los datos.
-- **Servidor:** El servidor recibe los datos transmitidos por MQTT y los almacenan para su análisis, esto utiliza el MQTT Broker. Los usuarios pueden monitorear y controlar el sistema en tiempo casi real a través de este, con acceso remoto a la información y control sobre el sistema de ventilación. Además, se pueden controlar todos los clientes desde aquí, demostrando seguridad en el control de los dispositivos que deben tener dicha información.
+### Communication Infrastructure Details
+Below are the key components in the data flow:
+- **Sensors:** Capture temperature, humidity, and energy consumption data. These sensors send the information via MQTT to the central gateway.
+- **Single Board Computer (SBC):** Acts as the intermediary between the sensors and the MQTT Client, simulating a Raspberry Pi in the network and processing the sensor data to start the transmission.
+- **MQTT Client:** This client is responsible for publishing the sensor data to the subscribed MQTT server. The publish/subscribe model ensures that only the necessary devices receive the data, allowing for efficient local and remote control.
+- **Gateway:** In addition to transmitting data to the router, the gateway allows direct connection to local devices (temperature and humidity monitors, and mobile devices) to view and control the data.
+- **Server:** The server receives the data transmitted by MQTT and stores it for analysis, using the MQTT Broker. Users can monitor and control the system in near real-time via this, with remote access to the information and control over the ventilation system. Furthermore, all clients can be controlled from here, demonstrating security in the control of the devices that should have that information.
 
-## Validación del Sistema
+## System Validation
 
-La validación del sistema se realizó mediante una demostración práctica en video. En el video, se muestra que los dispositivos conectados al MQTT Client reciben los datos en tiempo real. Se demuestra que en diferentes dispositivos (como monitores y dispositivos móviles), el cliente MQTT suscrito está correctamente configurado y puede recibir los datos enviados por los sensores. Además, se valida el funcionamiento del servidor al mostrar cómo este reconoce los dispositivos conectados y confirma la llegada de los datos.  
-También se realizó una prueba de conexión en la que se mostró cómo un monitor, al introducir la contraseña del gateway, se conecta correctamente y comienza a recibir los datos de manera instantánea. Esta demostración asegura que la infraestructura funciona correctamente, validando tanto la transmisión de datos como la capacidad de control remoto y local.
+The system was validated through a practical demonstration in a video. In the video, it is shown that the devices connected to the MQTT Client receive data in real-time. It is demonstrated that on different devices (such as monitors and mobile devices), the subscribed MQTT client is correctly configured and can receive the data sent by the sensors. Additionally, the server's functionality is validated by showing how it recognizes the connected devices and confirms the arrival of data.  
+A connection test was also conducted, showing how a monitor, upon entering the gateway's password, correctly connects and begins receiving data instantly. This demonstration ensures that the infrastructure works correctly, validating both data transmission and remote/local control capability.
 
-## Referencias:
-"Internet of Things (IoT)", HexHub, 2025. Disponible en: https://www.youtube.com/playlist?list=PLmolNWplRhQS1r5PdbInurvoX0MdQ7U2F. [Accedido: 28-Mar-2025].
-
-
+## References:
+"Internet of Things (IoT)", HexHub, 2025. Available at: https://www.youtube.com/playlist?list=PLmolNWplRhQS1r5PdbInurvoX0MdQ7U2F. [Accessed: Mar 28, 2025].
 
 ## Contributors
 - **Edwin Alejandro Gutierrez Rodriguez**  
 - **Nicolas Stiven Ortiz Cortes**  
-- **Juan Díego Lemus Rey**  
+- **Juan Diego Lemus Rey**  
 - **Universidad de La Sabana**
