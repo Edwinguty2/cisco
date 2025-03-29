@@ -8,9 +8,8 @@ This project aims to implement a smart ventilation system for the floriculture i
 **General Objective:** Design and develop an IoT infrastructure pilot that integrates sensor data, AI-based automation, and real-time remote monitoring to improve energy efficiency in ventilation for rose cultivation in Colombia.
 
 **Specific Objectives:**
-1. Develop a Minimum Viable Product (MVP) that integrates sensor acquisition, local AI processing, and cloud connectivity to reduce energy consumption compared to traditional ventilation systems.
-2. Implement a remote monitoring platform to ensure a theoretical 99% data availability in real-time through a web/mobile application.
-3. Collect feedback from stakeholders during the final phase of the project to ensure satisfaction regarding energy efficiency and usability.
+1. Implement a remote monitoring platform to ensure a theoretical 99% data availability in real-time through a web/mobile application.
+2. Collect feedback from stakeholders during the final phase of the project to ensure satisfaction regarding energy efficiency and usability.
 
 ## Use of MQTT in the Project
 
